@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hire in India — Powered by Multiplier | SyBridge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,700&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&display=swap" rel="stylesheet">
+<style>
+/*
+  SYBRIDGE EXACT COLORS (from screenshot):
+  Teal/Cyan primary:  #00B4C8  (hero bg left panel)
+  Teal dark:          #0099AA  (hover, borders)
+  Teal gradient end:  #00CEC8  (lighter cyan)
+  Lime green CTA:     #8DC63F  ("Start the Conversation" button)
+  Lime hover:         #79AE32
+  White:              #FFFFFF
+  Body bg:            #FFFFFF
+  Dark text:          #1A2B3C  (navy/charcoal)
+  Mid text:           #4A5568
+  Light bg:           #F4FAFB  (teal-tinted near-white)
+  Border:             #D4EFF3
+  Logo blue:          #0077B6  (A in logo)
+*/
+:root {
+  --teal:       #00B4C8;
+  --teal-dark:  #0099AA;
+  --teal-light: #00CEC8;
+  --teal-pale:  #E6F7FA;
+  --teal-mid:   #B3E8EF;
+  --lime:       #8DC63F;
+  --lime-dark:  #79AE32;
+  --white:      #FFFFFF;
+  --bg:         #FFFFFF;
+  --bg-light:   #F4FAFB;
+  --navy:       #1A2B3C;
+  --mid:        #3D5166;
+  --muted:      #6B7F8F;
+  --border:     #C8E8EF;
+  --border2:    #D8EFF4;
+  --ff-disp:    'Barlow Condensed', sans-serif;
+  --ff-body:    'Barlow', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--navy);
+  font-family: var(--ff-body);
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border2);
+  box-shadow: 0 1px 12px rgba(0,180,200,0.07);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 12px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-mark svg { width: 100%; height: 100%; }
+.nav-brand-text {
+  font-family: var(--ff-disp);
+  font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--navy);
+  line-height: 1.1;
+}
+.nav-brand-text span { display: block; font-size: 9px; font-weight: 400; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+.nav-x {
+  font-family: var(--ff-disp); font-size: 18px; font-weight: 300;
+  color: var(--teal); margin: 0 10px;
+}
+.nav-mul {
+  font-family: var(--ff-disp); font-size: 14px; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; color: var(--teal);
+}
+.nav-eyebrow {
+  font-size: 11px; color: var(--muted); letter-spacing: 0.3px;
+}
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lime);
+  color: var(--white);
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 11px 22px; text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  transition: background 0.18s, transform 0.15s;
+}
+.nav-cta:hover { background: var(--lime-dark); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  margin-top: 68px;
+  min-height: calc(100vh - 68px);
+  display: grid;
+  grid-template-columns: 44% 56%;
+  position: relative; overflow: hidden;
+}
+.hero-left {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+  padding: 80px 52px 80px 52px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+  z-index: 1;
+}
+/* subtle grid on teal panel */
+.hero-left::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-right {
+  background: var(--bg-light);
+  display: flex; align-items: center; justify-content: center;
+  padding: 80px 52px 80px 80px;
+  position: relative;
+}
+.hero-right-inner { max-width: 480px; }
+
+.hero-eyebrow {
+  font-size: 11px; font-weight: 500; letter-spacing: 2.5px;
+  text-transform: uppercase; color: rgba(255,255,255,0.75);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 22px;
+  opacity: 0; transform: translateY(14px);
+  animation: up 0.7s 0.15s ease forwards;
+}
+.hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: rgba(255,255,255,0.6); }
+
+h1.hero-h1 {
+  font-family: var(--ff-disp);
+  font-size: clamp(52px, 7vw, 96px);
+  font-weight: 900; line-height: 0.9;
+  letter-spacing: -1.5px; text-transform: uppercase;
+  color: var(--white);
+  opacity: 0; transform: translateY(24px);
+  animation: up 0.85s 0.3s ease forwards;
+}
+h1.hero-h1 em { font-style: italic; font-weight: 300; }
+
+.hero-tagline {
+  font-size: 15px; font-weight: 400; color: rgba(255,255,255,0.82);
+  line-height: 1.75; margin-top: 22px; max-width: 340px;
+  opacity: 0; animation: up 0.8s 0.5s ease forwards;
+}
+.hero-left-cta {
+  margin-top: 32px;
+  opacity: 0; animation: up 0.8s 0.65s ease forwards;
+}
+.btn-lime {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--lime); color: var(--white);
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 13px 26px; text-decoration: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);
+  transition: background 0.18s, transform 0.18s;
+}
+.btn-lime:hover { background: var(--lime-dark); transform: translateY(-2px); }
+.btn-teal {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--teal); color: var(--white);
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 13px 26px; text-decoration: none;
+  transition: background 0.18s, transform 0.18s;
+  border: none;
+}
+.btn-teal:hover { background: var(--teal-dark); transform: translateY(-2px); }
+.btn-outline-teal {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: transparent; color: var(--teal);
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 12px 26px; text-decoration: none;
+  border: 2px solid var(--teal);
+  transition: all 0.18s;
+}
+.btn-outline-teal:hover { background: var(--teal); color: white; transform: translateY(-2px); }
+.arr { display: inline-block; transition: transform 0.18s; }
+.btn-lime:hover .arr, .btn-teal:hover .arr, .btn-outline-teal:hover .arr { transform: translateX(4px); }
+
+/* RIGHT SIDE STATS */
+.hero-stat-label {
+  font-family: var(--ff-disp); font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--teal);
+  margin-bottom: 20px;
+  opacity: 0; animation: up 0.7s 0.4s ease forwards;
+}
+.hero-stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  opacity: 0; animation: up 0.8s 0.55s ease forwards;
+}
+.hsg-card {
+  background: var(--white); border: 1px solid var(--border);
+  padding: 22px 20px; border-radius: 2px;
+  border-top: 3px solid var(--teal);
+  transition: border-top-color 0.2s, transform 0.2s;
+}
+.hsg-card:hover { border-top-color: var(--lime); transform: translateY(-2px); }
+.hsg-n {
+  font-family: var(--ff-disp); font-size: 40px; font-weight: 900;
+  line-height: 1; color: var(--teal);
+}
+.hsg-n sup { font-size: 18px; color: var(--lime); }
+.hsg-l { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.4; }
+.hero-right-cta {
+  display: flex; gap: 12px; margin-top: 28px; flex-wrap: wrap;
+  opacity: 0; animation: up 0.8s 0.75s ease forwards;
+}
+
+@keyframes up { to { opacity: 1; transform: translateY(0); } }
+
+/* ── TICKER ── */
+.ticker-wrap {
+  height: 44px; overflow: hidden;
+  background: var(--teal);
+  display: flex; align-items: center;
+}
+.ticker-track {
+  display: flex; align-items: center;
+  animation: ticker 28s linear infinite;
+  white-space: nowrap;
+}
+.ticker-item {
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.85); padding: 0 32px;
+}
+.ticker-dot { color: var(--lime); margin-right: 32px; font-size: 7px; vertical-align: middle; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SHARED ── */
+section { padding: 88px 52px; }
+.sec-tag {
+  font-family: var(--ff-body); font-size: 11px; font-weight: 600;
+  letter-spacing: 2.5px; text-transform: uppercase; color: var(--teal);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.sec-tag::before { content: ''; width: 24px; height: 2px; background: var(--teal); }
+.sec-h2 {
+  font-family: var(--ff-disp);
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 900; line-height: 0.97;
+  text-transform: uppercase; letter-spacing: -0.5px; max-width: 640px;
+  color: var(--navy);
+}
+.sec-h2 em { font-style: italic; font-weight: 300; color: var(--teal); }
+.sec-sub {
+  font-size: 15px; color: var(--mid); max-width: 540px;
+  line-height: 1.8; margin-top: 16px;
+}
+hr.rule { border: none; border-top: 1px solid var(--border2); margin: 0 52px; }
+
+/* ── COMPARE ── */
+.compare-wrap { margin-top: 52px; border: 1px solid var(--border); }
+.compare-heads {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.ch {
+  padding: 14px 28px;
+  font-family: var(--ff-disp); font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+}
+.ch.neg { background: #FFF5F5; color: #CC3333; }
+.ch.pos { background: var(--teal-pale); color: var(--teal-dark); border-left: 3px solid var(--teal); }
+.compare-cols {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.ccol { padding: 28px; }
+.ccol.neg { background: #FFFAFA; }
+.ccol.pos { background: var(--teal-pale); border-left: 3px solid var(--teal); }
+.ci { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+.ci:last-child { margin-bottom: 0; }
+.ci-ico {
+  width: 22px; height: 22px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800;
+}
+.neg .ci-ico { background: rgba(220,50,50,0.1); color: #CC3333; }
+.pos .ci-ico { background: rgba(0,180,200,0.15); color: var(--teal-dark); }
+.ci-txt { font-size: 14px; line-height: 1.65; color: var(--mid); }
+.ci-txt strong { color: var(--navy); font-weight: 600; }
+
+/* ── STEPS ── */
+.steps-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  margin-top: 52px; border: 1px solid var(--border);
+}
+.step {
+  padding: 32px 24px;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+}
+.step:last-child { border-right: none; }
+.step:hover { background: var(--teal-pale); }
+.step::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--teal);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.step:hover::before { transform: scaleX(1); }
+.step-n {
+  font-family: var(--ff-disp); font-size: 72px; font-weight: 900;
+  line-height: 1; color: rgba(0,180,200,0.10);
+  margin-bottom: 12px; transition: color 0.25s;
+}
+.step:hover .step-n { color: rgba(0,180,200,0.22); }
+.step-t {
+  font-family: var(--ff-disp); font-size: 17px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.3px;
+  color: var(--navy); margin-bottom: 8px;
+}
+.step-d { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+/* ── TEAL BAND ── */
+.india-band {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+  padding: 72px 52px; position: relative; overflow: hidden;
+}
+.india-band::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+.india-band-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center;
+  position: relative;
+}
+.india-band h2 {
+  font-family: var(--ff-disp); font-size: clamp(28px,4vw,48px);
+  font-weight: 900; line-height: 0.97; text-transform: uppercase; color: #fff;
+}
+.india-band p { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.8; margin-top: 16px; }
+.india-list { list-style: none; }
+.india-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.15);
+  font-size: 14px; color: rgba(255,255,255,0.9); line-height: 1.55;
+}
+.india-list li:last-child { border-bottom: none; }
+.ck {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  flex-shrink: 0; margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 800; color: white;
+}
+
+/* ── COMPLIANCE TABLE ── */
+.ctable {
+  width: 100%; border-collapse: collapse;
+  margin-top: 48px; border: 1px solid var(--border);
+}
+.ctable th {
+  font-family: var(--ff-disp); font-size: 11px; font-weight: 700;
+  letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--teal-dark); padding: 13px 20px; text-align: left;
+  background: var(--teal-pale); border-bottom: 2px solid var(--teal);
+}
+.ctable td {
+  padding: 14px 20px; font-size: 13px; line-height: 1.6;
+  border-bottom: 1px solid var(--border2); color: var(--mid);
+  vertical-align: top;
+}
+.ctable tr:last-child td { border-bottom: none; }
+.ctable td:first-child { font-family: var(--ff-disp); font-size: 15px; font-weight: 700; color: var(--navy); }
+.ctable td.hl { color: var(--teal-dark); font-weight: 600; }
+.ctable tr:hover td { background: var(--teal-pale); }
+
+/* ── STORIES ── */
+.stories-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 20px; margin-top: 48px;
+}
+.story {
+  background: var(--white); border: 1px solid var(--border);
+  border-top: 3px solid var(--teal);
+  padding: 32px; display: flex; flex-direction: column;
+  transition: border-top-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.story:hover {
+  border-top-color: var(--lime);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,180,200,0.1);
+}
+.story-co {
+  font-family: var(--ff-disp); font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--teal);
+  margin-bottom: 16px;
+}
+.story-q {
+  font-size: 15px; font-style: italic; line-height: 1.75;
+  color: var(--mid); flex: 1; margin-bottom: 22px;
+  padding-left: 14px; border-left: 2px solid var(--teal-mid);
+}
+.story-metrics {
+  display: flex; gap: 20px;
+  padding-top: 16px; border-top: 1px solid var(--border2);
+}
+.sm-n {
+  font-family: var(--ff-disp); font-size: 26px; font-weight: 900;
+  color: var(--teal); line-height: 1;
+}
+.sm-l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.story-attr { font-size: 12px; color: var(--muted); margin-top: 12px; }
+.story-attr strong { color: var(--mid); font-weight: 500; }
+
+/* ── RATINGS ── */
+.ratings-bar {
+  margin-top: 28px; padding: 24px 32px;
+  background: var(--teal-pale); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.rb-label {
+  font-family: var(--ff-disp); font-size: 11px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--teal-dark);
+}
+.rb-nums { display: flex; gap: 32px; flex-wrap: wrap; }
+.rb-num { font-family: var(--ff-disp); font-size: 28px; font-weight: 900; color: var(--teal); line-height: 1; }
+.rb-num sub { font-size: 13px; color: var(--muted); font-weight: 400; }
+.rb-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+/* ── JESSIE CTA ── */
+.jessie-section {
+  background: var(--teal-pale);
+  padding: 96px 52px; text-align: center;
+  position: relative; overflow: hidden;
+}
+/* diagonal shape decoration */
+.jessie-section::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: linear-gradient(135deg, rgba(0,180,200,0.12) 0%, transparent 70%);
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+.jessie-section h2 {
+  font-family: var(--ff-disp);
+  font-size: clamp(36px, 5.5vw, 72px);
+  font-weight: 900; text-transform: uppercase;
+  line-height: 0.95; letter-spacing: -0.8px;
+  color: var(--navy); margin-bottom: 18px;
+  position: relative;
+}
+.jessie-section h2 em { font-style: italic; font-weight: 300; color: var(--teal); }
+.jessie-section > p {
+  font-size: 16px; color: var(--mid);
+  max-width: 420px; margin: 0 auto 40px;
+  line-height: 1.78; position: relative;
+}
+.jessie-card {
+  display: inline-flex; flex-direction: column; align-items: center; gap: 16px;
+  background: var(--white); padding: 36px 48px;
+  border: 1px solid var(--border); border-top: 4px solid var(--teal);
+  max-width: 440px; width: 100%;
+  box-shadow: 0 8px 32px rgba(0,180,200,0.10);
+  position: relative;
+}
+.jessie-avatar {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-light) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-disp); font-size: 24px; font-weight: 900; color: white;
+}
+.jessie-name {
+  font-family: var(--ff-disp); font-size: 20px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 1px; color: var(--navy);
+}
+.jessie-role { font-size: 13px; color: var(--muted); margin-top: -8px; }
+.jessie-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  padding: 36px 52px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.foot-brand {
+  font-family: var(--ff-disp); font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+.foot-links { display: flex; gap: 24px; flex-wrap: wrap; }
+.foot-links a {
+  font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none;
+  transition: color 0.18s; letter-spacing: 0.4px;
+}
+.foot-links a:hover { color: var(--teal); }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.08s; } .d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; } .d4 { transition-delay: 0.32s; }
+
+/* ── MOBILE ── */
+@media (max-width: 860px) {
+  nav { padding: 0 18px; } .nav-eyebrow { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; margin-top: 68px; }
+  .hero-left { clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%); padding: 56px 24px 80px; }
+  .hero-right { padding: 48px 24px; }
+  section { padding: 56px 20px; }
+  .compare-heads, .compare-cols { grid-template-columns: 1fr; }
+  .ccol.pos { border-left: none; border-top: 3px solid var(--teal); }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .india-band-inner { grid-template-columns: 1fr; gap: 36px; }
+  .stories-grid { grid-template-columns: 1fr; }
+  hr.rule { margin: 0 20px; }
+  footer { padding: 28px 20px; flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <!-- SyBridge-style logo mark (triangle A) -->
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="20,4 36,34 4,34" fill="none" stroke="#0077B6" stroke-width="3.5" stroke-linejoin="round"/>
+        <line x1="11" y1="24" x2="29" y2="24" stroke="#0077B6" stroke-width="3"/>
+      </svg>
+    </div>
+    <div class="nav-brand-text">
+      SyBridge <span>Technologies</span>
+    </div>
+    <span class="nav-x">×</span>
+    <span class="nav-mul">Multiplier</span>
+  </a>
+  <span class="nav-eyebrow">Prepared exclusively for SyBridge Technologies</span>
+  <a href="https://calendar.app.google/PSe2EiZv4JAtJHAz6" target="_blank" class="nav-cta">
+    Book a Time with Jessie →
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Prepared for SyBridge Technologies</div>
+    <h1 class="hero-h1">THE SMART<br>WAY TO<br>START IN<br><em>INDIA.</em></h1>
+    <p class="hero-tagline">Whether SyBridge opens an entity someday or not — EOR is the right move right now. Hire compliantly in days, validate your India strategy, and decide on a permanent structure when the time is actually right.</p>
+    <div class="hero-left-cta">
+      <a href="https://calendar.app.google/PSe2EiZv4JAtJHAz6" target="_blank" class="btn-lime">
+        Book a Time with Jessie <span class="arr">→</span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-inner">
+      <div class="hero-stat-label">EOR works at every stage</div>
+
+      <!-- "When does EOR make sense?" framing cards -->
+      <div style="display:flex; flex-direction:column; gap:14px; margin-bottom:22px;">
+        <div style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--teal); padding:16px 18px; border-radius:2px;">
+          <div style="font-family:var(--ff-disp); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); margin-bottom:5px;">Right now — getting started</div>
+          <div style="font-size:13px; color:var(--mid); line-height:1.6;">Skip the 6–12 month entity setup. Hire your first India employees this week, stay fully compliant, and start building momentum immediately.</div>
+        </div>
+        <div style="background:var(--white); border:1px solid var(--border); border-left:4px solid var(--teal); padding:16px 18px; border-radius:2px;">
+          <div style="font-family:var(--ff-disp); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--teal); margin-bottom:5px;">Long-term — if headcount stays ≤ 7</div>
+          <div style="font-size:13px; color:var(--mid); line-height:1.6;">For most companies under ~8 employees in-country, EOR costs less than running a local entity when you factor in legal, accounting, and admin overhead.</div>
+        </div>
+        <div style="background:var(--teal-pale); border:1px solid var(--border); border-left:4px solid var(--lime); padding:16px 18px; border-radius:2px;">
+          <div style="font-family:var(--ff-disp); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--lime-dark); margin-bottom:5px;">Later — if SyBridge opens an entity</div>
+          <div style="font-size:13px; color:var(--mid); line-height:1.6;">Multiplier supports a clean transition. Use EOR to hire, prove the model, then migrate employees to your own entity when the business case is clear.</div>
+        </div>
+      </div>
+
+      <div class="hero-right-cta">
+        <a href="https://www.usemultiplier.com/india/employer-of-record" target="_blank" class="btn-teal">
+          India EOR Details <span class="arr">→</span>
+        </a>
+        <a href="https://www.usemultiplier.com" target="_blank" class="btn-outline-teal">
+          Visit Multiplier <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot">◆</span>EOR in 150+ countries</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>India statutory compliance</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>PF · ESI · Gratuity managed</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>Onboard in days, not months</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>No local entity needed</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>Contracts in 5 minutes</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>#1 rated EOR globally</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>Transparent flat pricing</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>EOR in 150+ countries</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>India statutory compliance</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>PF · ESI · Gratuity managed</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>Onboard in days, not months</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>No local entity needed</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>Contracts in 5 minutes</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>#1 rated EOR globally</span>
+    <span class="ticker-item"><span class="ticker-dot">◆</span>Transparent flat pricing</span>
+  </div>
+</div>
+
+<!-- WHY NOT ENTITY -->
+<hr class="rule">
+<section>
+  <div class="sec-tag reveal">EOR vs. legal entity</div>
+  <h2 class="sec-h2 reveal">Start with EOR.<br><em>Decide on an entity<br>when the time is right.</em></h2>
+  <p class="sec-sub reveal">An entity isn't wrong — it just isn't necessary yet. EOR gives SyBridge a fully compliant India presence today, with the freedom to transition to a local entity later if headcount and business scale justify it. For teams staying under ~7–8 employees, EOR typically remains the more cost-effective structure long-term.</p>
+  <div class="compare-wrap reveal">
+    <div class="compare-heads">
+      <div class="ch neg">Setting up a legal entity in India</div>
+      <div class="ch pos">✓ &nbsp; Multiplier EOR — start now, scale smart</div>
+    </div>
+    <div class="compare-cols">
+      <div class="ccol neg">
+        <div class="ci"><div class="ci-ico">✕</div><div class="ci-txt"><strong>6–12 months</strong> to incorporate — MCA registrations, tax IDs, RBI filings, and local bank accounts before you hire anyone</div></div>
+        <div class="ci"><div class="ci-ico">✕</div><div class="ci-txt"><strong>$50K–$100K+</strong> in setup costs, ongoing legal fees, annual audits, and mandatory compliance filings</div></div>
+        <div class="ci"><div class="ci-ico">✕</div><div class="ci-txt"><strong>28 state-level variations</strong> in minimum wages, PF rules, and Shops & Establishments Acts — each requiring local counsel</div></div>
+        <div class="ci"><div class="ci-ico">✕</div><div class="ci-txt"><strong>Permanent obligation:</strong> once established, annual returns and audits are mandatory regardless of team size or business conditions</div></div>
+        <div class="ci"><div class="ci-ico">✕</div><div class="ci-txt"><strong>Difficult to exit:</strong> winding up an Indian entity is a multi-year legal process requiring NCLT approval</div></div>
+      </div>
+      <div class="ccol pos">
+        <div class="ci"><div class="ci-ico">✓</div><div class="ci-txt"><strong>24–72 hours</strong> to your first hire — Multiplier's owned India entity means no setup delays, no waiting</div></div>
+        <div class="ci"><div class="ci-ico">✓</div><div class="ci-txt"><strong>~$300/month per employee,</strong> flat and transparent — covers compliance, payroll, and benefits with no hidden fees</div></div>
+        <div class="ci"><div class="ci-ico">✓</div><div class="ci-txt"><strong>Full statutory compliance</strong> out of the box — PF (12%), ESI (3.25%), TDS, gratuity, and professional tax all handled automatically</div></div>
+        <div class="ci"><div class="ci-ico">✓</div><div class="ci-txt"><strong>Zero lock-in:</strong> scale your India team up or down without long-term obligations or winding-up procedures</div></div>
+        <div class="ci"><div class="ci-ico">✓</div><div class="ci-txt"><strong>Owned infrastructure:</strong> Multiplier holds a local India entity — no subcontractors, faster resolution of any issue</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- When entity makes sense callout -->
+  <div class="reveal" style="margin-top:24px; background:var(--teal-pale); border:1px solid var(--border); border-left:4px solid var(--lime); padding:24px 28px; display:flex; gap:20px; align-items:flex-start;">
+    <div style="font-size:22px; flex-shrink:0; margin-top:2px;">💡</div>
+    <div>
+      <div style="font-family:var(--ff-disp); font-size:13px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--lime-dark); margin-bottom:6px;">When does a local entity start to make sense?</div>
+      <div style="font-size:14px; color:var(--mid); line-height:1.7;">Most global HR advisors put the crossover point at <strong style="color:var(--navy);">8–15 employees in-country</strong>, once the recurring cost of EOR per head exceeds the annualized cost of running your own entity (legal, accounting, registered agent, and HR overhead). If SyBridge plans to cap India hiring at <strong style="color:var(--navy);">~7 people</strong>, EOR is very likely the right permanent structure — not just an interim step. Multiplier can model this cost comparison for your specific headcount plan.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<hr class="rule">
+<section style="background: var(--bg-light);">
+  <div class="sec-tag reveal">How it works</div>
+  <h2 class="sec-h2 reveal">From decision to <em>Day One</em><br>in four steps.</h2>
+  <div class="steps-grid reveal">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div class="step-t">Select your hire</div>
+      <div class="step-d">You identify the talent. Multiplier's built-in salary calculator shows total cost of employment for any India role — full transparency before you commit.</div>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div class="step-t">Generate contract</div>
+      <div class="step-d">A locally compliant employment contract is generated in under 5 minutes — aligned to Indian labor law, state-specific rules, and your terms.</div>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div class="step-t">Onboard &amp; comply</div>
+      <div class="step-d">Employee onboards through Multiplier's platform. PF, ESI registrations, and all statutory obligations are activated automatically from day one.</div>
+    </div>
+    <div class="step">
+      <div class="step-n">04</div>
+      <div class="step-t">Run payroll</div>
+      <div class="step-d">Monthly INR payroll with 99.95% accuracy. TDS filings, payslips, gratuity provisioning, and benefit disbursements — handled end-to-end.</div>
+    </div>
+  </div>
+</section>
+
+<!-- INDIA COMPLIANCE BAND -->
+<div class="india-band">
+  <div class="india-band-inner">
+    <div class="reveal">
+      <h2>Everything India<br>requires.<br>Already handled.</h2>
+      <p>India's employment laws rank among the most complex in Asia — 12% PF contributions, multi-state wage variations, quarterly TDS filings, and gratuity obligations from year five. Multiplier's India entity owns this complexity so SyBridge doesn't have to build a compliance team to manage it.</p>
+      <a href="https://www.usemultiplier.com/india/employer-of-record" target="_blank" class="btn-lime" style="margin-top:28px; display:inline-flex;">
+        View India EOR Details <span class="arr">→</span>
+      </a>
+    </div>
+    <ul class="india-list reveal">
+      <li><div class="ck">✓</div>Provident Fund (PF) — 12% employer + 12% employee on basic salary</li>
+      <li><div class="ck">✓</div>Employee State Insurance (ESI) — 3.25% employer contribution</li>
+      <li><div class="ck">✓</div>Tax Deducted at Source (TDS) — monthly calculations &amp; quarterly filings</li>
+      <li><div class="ck">✓</div>Gratuity provisioning for employees with 5+ years service</li>
+      <li><div class="ck">✓</div>Professional Tax — automated state-specific deductions</li>
+      <li><div class="ck">✓</div>Statutory bonus and leave encashment compliance</li>
+      <li><div class="ck">✓</div>Multi-state compliance across all 28 Indian states</li>
+      <li><div class="ck">✓</div>IP protection and confidentiality clauses in all contracts</li>
+    </ul>
+  </div>
+</div>
+
+<!-- COMPLIANCE TABLE -->
+<hr class="rule">
+<section>
+  <div class="sec-tag reveal">Compliance snapshot</div>
+  <h2 class="sec-h2 reveal">India statutory requirements —<br><em>all covered.</em></h2>
+  <table class="ctable reveal">
+    <thead>
+      <tr>
+        <th>Requirement</th>
+        <th>What it means</th>
+        <th>Multiplier handles</th>
+        <th>Risk if missed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Provident Fund (PF)</td>
+        <td>12% employer + 12% employee on basic salary; due by 15th monthly</td>
+        <td class="hl">Auto-calculated &amp; filed</td>
+        <td>Penalties + back-pay liability</td>
+      </tr>
+      <tr>
+        <td>ESI</td>
+        <td>3.25% employer contribution for employees earning ≤₹21,000/month</td>
+        <td class="hl">Auto-calculated &amp; filed</td>
+        <td>Prosecution under ESI Act</td>
+      </tr>
+      <tr>
+        <td>TDS (Income Tax)</td>
+        <td>Monthly deduction at applicable slab; quarterly returns to IT Dept.</td>
+        <td class="hl">Monthly + quarterly filing</td>
+        <td>Interest &amp; late-filing penalties</td>
+      </tr>
+      <tr>
+        <td>Gratuity</td>
+        <td>15 days' salary per year of service; due on separation after 5+ years</td>
+        <td class="hl">Provisioned &amp; managed</td>
+        <td>Civil suit + statutory interest</td>
+      </tr>
+      <tr>
+        <td>Employment Contract</td>
+        <td>Must comply with state-specific Shops &amp; Establishments Act</td>
+        <td class="hl">Generated in 5 minutes</td>
+        <td>Invalid employment, disputes</td>
+      </tr>
+      <tr>
+        <td>Professional Tax</td>
+        <td>State-level slab deductions (up to ₹2,500/year, varies by state)</td>
+        <td class="hl">State-wise auto-deduction</td>
+        <td>State-level penalties</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- CUSTOMER STORIES -->
+<hr class="rule">
+<section style="background: var(--bg-light);">
+  <div class="sec-tag reveal">Proof it works</div>
+  <h2 class="sec-h2 reveal">Companies that hired smarter<br>with <em>Multiplier.</em></h2>
+  <div class="stories-grid reveal">
+    <div class="story">
+      <div class="story-co">Aspire — Fintech · Singapore</div>
+      <div class="story-q">"We needed tech talent in India but wanted to avoid the high costs and lengthy process of setting up a local entity. Multiplier became our legal employer of record — managing contracts, onboarding, payroll, benefits, and tax reporting seamlessly."</div>
+      <div class="story-metrics">
+        <div><div class="sm-n">Days</div><div class="sm-l">to first India hire</div></div>
+        <div><div class="sm-n">100%</div><div class="sm-l">statutory compliance</div></div>
+      </div>
+      <div class="story-attr">Fintech, 500+ employees · <strong>India expansion via EOR</strong></div>
+    </div>
+    <div class="story">
+      <div class="story-co">DB Results — Technology Services</div>
+      <div class="story-q">"We faced high costs and compliance issues when scaling globally. Multiplier's EOR streamlined our entire onboarding, payroll, and compliance workflow end-to-end — 100 hires in under a year."</div>
+      <div class="story-metrics">
+        <div><div class="sm-n">100</div><div class="sm-l">employees in 10 months</div></div>
+        <div><div class="sm-n">100%</div><div class="sm-l">compliance rate</div></div>
+      </div>
+      <div class="story-attr">Tech services firm · <strong>Rapid team build, zero entity setup</strong></div>
+    </div>
+    <div class="story">
+      <div class="story-co">Mindvalley — EdTech · Global</div>
+      <div class="story-q">"Multiplier's instant contract generation was a game-changer. It significantly reduced our time-to-hire while ensuring a seamless overall experience — and the dedicated CSM resolved every concern fast."</div>
+      <div class="story-metrics">
+        <div><div class="sm-n">18</div><div class="sm-l">employees onboarded</div></div>
+        <div><div class="sm-n">5+</div><div class="sm-l">countries, one platform</div></div>
+      </div>
+      <div class="story-attr">Ed-tech, 250+ employees · <strong>Europe &amp; Asia expansion</strong></div>
+    </div>
+  </div>
+  <div class="ratings-bar reveal">
+    <div class="rb-label">Platform ratings</div>
+    <div class="rb-nums">
+      <div><div class="rb-num">4.7<sub>/5</sub></div><div class="rb-lbl">G2</div></div>
+      <div><div class="rb-num">4.9<sub>/5</sub></div><div class="rb-lbl">Trustpilot</div></div>
+      <div><div class="rb-num">#1</div><div class="rb-lbl">Rated EOR globally</div></div>
+      <div><div class="rb-num">2K<sub>+</sub></div><div class="rb-lbl">Organizations served</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JESSIE CTA -->
+<hr class="rule">
+<section class="jessie-section">
+  <h2 class="reveal">Ready to build your<br><em>India team?</em></h2>
+  <p class="reveal d1">Skip the entity setup. Skip the compliance risk. Start hiring India's best talent in days — with an expert guiding you every step of the way.</p>
+  <div style="display:flex; justify-content:center;">
+    <div class="jessie-card reveal d2">
+      <div class="jessie-avatar">J</div>
+      <div class="jessie-name">Jessie</div>
+      <div class="jessie-role">Your Multiplier EOR Specialist</div>
+      <div class="jessie-btns">
+        <a href="https://calendar.app.google/PSe2EiZv4JAtJHAz6" target="_blank" class="btn-lime">
+          Book a Time with Jessie <span class="arr">→</span>
+        </a>
+        <a href="https://www.usemultiplier.com/india/employer-of-record" target="_blank" class="btn-outline-teal">
+          India EOR Details <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">SyBridge × Multiplier — India Expansion Brief · 2025</div>
+  <div class="foot-links">
+    <a href="https://sybridge.com" target="_blank">SyBridge.com</a>
+    <a href="https://www.usemultiplier.com" target="_blank">usemultiplier.com</a>
+    <a href="https://www.usemultiplier.com/india/employer-of-record" target="_blank">India EOR</a>
+    <a href="https://www.usemultiplier.com/case-studies" target="_blank">Case Studies</a>
+    <a href="https://calendar.app.google/PSe2EiZv4JAtJHAz6" target="_blank">Book with Jessie</a>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: 0.10 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
